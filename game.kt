@@ -39,9 +39,11 @@ class Game(width: Int, height: Int): JPanel(), KeyListener, ActionListener {
         score = 0
         gameOver = false
 
-        square.reset(100, window.height / 2)
+        square.reset(100, window.height / 2 - square.side)
 
         square.windowHeight = height
+
+        window.isResizable = false
 
 
     }
@@ -105,6 +107,10 @@ class Game(width: Int, height: Int): JPanel(), KeyListener, ActionListener {
 
             }
 
+        }
+
+        if (gameOver) {
+            window.isResizable = true
         }
 
     }
